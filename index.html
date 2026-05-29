@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubhra Raj — Product Leader</title>
+  <meta name="description" content="Fintech product leader with 18 years building payments infrastructure and AI-native products at PayPal, Navan, and Intuit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: #111111;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 40px);
+    }
+    .divider { border: none; border-top: 1px solid #E8E8E4; margin: 0; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid #E8E8E4;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(24px, 5vw, 40px);
+      justify-content: space-between;
+    }
+    .nav-name { font-weight: 700; font-size: 14px; letter-spacing: -0.2px; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #888888;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: #111111; }
+    .nav-links a.cta { color: #111111; }
+
+    /* ── Section labels ── */
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888888;
+      margin-bottom: 10px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: clamp(64px, 10vw, 112px) 0 clamp(60px, 8vw, 88px);
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+    .hero-bio {
+      font-size: 17px;
+      line-height: 1.78;
+      color: #333333;
+      max-width: 580px;
+      margin-bottom: 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #111111;
+      color: #ffffff;
+      padding: 11px 22px;
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.1px;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #333333; }
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid #E8E8E4;
+      color: #888888;
+      padding: 11px 22px;
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-secondary:hover { border-color: #999; color: #333; }
+    .trust-bar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      row-gap: 10px;
+      padding-top: 28px;
+      border-top: 1px solid #E8E8E4;
+    }
+    .trust-bar span { font-size: 13px; color: #888888; font-weight: 500; }
+    .trust-sep { color: #E8E8E4; padding: 0 16px; font-size: 14px; }
+
+    /* ── Sections ── */
+    section {
+      padding: clamp(56px, 8vw, 88px) 0;
+    }
+    section h2 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.12;
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: #888888;
+      margin-bottom: 40px;
+      line-height: 1.65;
+      max-width: 520px;
+    }
+
+    /* ── Work cards ── */
+    .work-list { display: flex; flex-direction: column; gap: 12px; }
+    .work-card {
+      background: #F7F7F5;
+      border: 1px solid #E8E8E4;
+      border-radius: 12px;
+      padding: 28px 32px;
+    }
+    .work-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .work-company {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2563EB;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .work-period { font-size: 12px; color: #888888; }
+    .work-title {
+      font-size: 18px;
+      font-weight: 650;
+      line-height: 1.3;
+      letter-spacing: -0.4px;
+      margin-bottom: 12px;
+    }
+    .work-body { font-size: 15px; color: #888888; line-height: 1.68; }
+
+    /* ── Project cards ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .project-card {
+      background: #F7F7F5;
+      border: 1px solid #E8E8E4;
+      border-radius: 12px;
+      padding: 22px 24px 24px;
+      position: relative;
+    }
+    .project-card.live { border-color: #BFDBFE; }
+    .project-status {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #888888;
+    }
+    .project-status.live { color: #16A34A; }
+    .status-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #16A34A;
+      flex-shrink: 0;
+    }
+    .project-user {
+      font-size: 10px;
+      font-weight: 700;
+      color: #2563EB;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .project-name {
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: -0.2px;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      padding-right: 40px;
+    }
+    .project-desc { font-size: 13px; color: #888888; line-height: 1.65; }
+    .project-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #111111;
+    }
+
+    /* ── Essays ── */
+    .essay-list { display: flex; flex-direction: column; }
+    .essay-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid #E8E8E4;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .essay-item:hover .essay-title { color: #2563EB; }
+    .essay-item:hover .essay-arrow { color: #2563EB; }
+    .essay-title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      transition: color 0.15s;
+    }
+    .essay-teaser { font-size: 14px; color: #888888; line-height: 1.65; }
+    .essay-arrow {
+      font-size: 18px;
+      color: #888888;
+      flex-shrink: 0;
+      margin-top: 3px;
+      transition: color 0.15s;
+    }
+
+    /* ── Contact ── */
+    .contact-body {
+      font-size: 17px;
+      color: #888888;
+      max-width: 460px;
+      line-height: 1.72;
+      margin-top: 14px;
+      margin-bottom: 44px;
+    }
+    .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-contact {
+      display: inline-block;
+      background: #111111;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 7px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.1px;
+      transition: background 0.15s;
+    }
+    .btn-contact:hover { background: #333333; }
+    .btn-contact-sec {
+      display: inline-block;
+      border: 1px solid #E8E8E4;
+      color: #888888;
+      padding: 12px 24px;
+      border-radius: 7px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-contact-sec:hover { border-color: #999; color: #333; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid #E8E8E4;
+      padding: 24px clamp(24px, 5vw, 40px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer span { font-size: 13px; color: #BBBBBB; }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .nav-links { gap: 16px; }
+      .hero h1 { letter-spacing: -1px; }
+      .work-card { padding: 22px 20px; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <span class="nav-name">Shubhra Raj</span>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact" class="cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="container">
+    <section class="hero" id="hero">
+      <div class="label">Product Leader</div>
+      <h1>Building AI-native<br>financial products</h1>
+      <div class="hero-bio">
+        <p>I'm Shubhra Raj - fintech product leader with 18 years building payments infrastructure and AI-native products at PayPal, Navan, and Intuit.</p>
+        <p>I've led teams of up to 20 PMs, built financial products at the scale of 100M+ customers, $500M+ in incremental transaction volume, paving the path for $100M+ annual recurring revenue.</p>
+        <p>What drives me: finding the human friction buried inside complex financial systems and designing it away - whether that's helping a small business stop worrying about cash flow, or giving an employee instant access to their paycheck the moment it's earned.</p>
+        <p>I'm now building the next generation of AI-native financial products. Starting with the humans and agents who use them.</p>
+      </div>
+      <div class="hero-ctas">
+        <a href="mailto:shubhra.raj@gmail.com" class="btn-primary">Get in touch</a>
+        <a href="https://linkedin.com/in/shubhraraj" target="_blank" rel="noopener" class="btn-secondary">LinkedIn</a>
+      </div>
+      <div class="trust-bar">
+        <span>PayPal</span><span class="trust-sep">/</span>
+        <span>Navan</span><span class="trust-sep">/</span>
+        <span>Intuit</span><span class="trust-sep">/</span>
+        <span>Wharton MBA</span><span class="trust-sep">/</span>
+        <span>IIT Madras</span>
+      </div>
+    </section>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Work -->
+  <div class="container">
+    <section id="work">
+      <div class="label">Work</div>
+      <h2>Selected impact</h2>
+      <p class="section-sub">Three products. Three inflection points.</p>
+      <div class="work-list">
+
+        <div class="work-card">
+          <div class="work-card-header">
+            <span class="work-company">Intuit</span>
+            <span class="work-period">2025 - Present</span>
+          </div>
+          <h3 class="work-title">Embedded Digital Wallet for 100M+ users</h3>
+          <p class="work-body">Building the payments and balance layer across QuickBooks (7M+ SMBs) and Credit Karma (100M+ users) - targeting $100M+ in ARR. Also shipping an AI-driven notification engine targeting 40% engagement uplift.</p>
+        </div>
+
+        <div class="work-card">
+          <div class="work-card-header">
+            <span class="work-company">Navan</span>
+            <span class="work-period">2023 - 2025</span>
+          </div>
+          <h3 class="work-title">Launched corporate card + AI agent, $500M+ in volume</h3>
+          <p class="work-body">Built Navan's corporate card from 0 to $500M+ in transaction volume. Deployed an AI calling agent resolving 95%+ of hotel check-in disputes across 400K monthly bookings. Drove 2x revenue growth.</p>
+        </div>
+
+        <div class="work-card">
+          <div class="work-card-header">
+            <span class="work-company">PayPal</span>
+            <span class="work-period">2018 - 2023</span>
+          </div>
+          <h3 class="work-title">$150M Shopify contract + EMEA expansion</h3>
+          <p class="work-body">Led PayPal Commerce Platform strategy with a team of 8 PMs. Anchored a $150M+ Shopify contract and launched PayPal's first business debit card in Europe - unlocking 52M+ acceptance locations.</p>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- AI Projects -->
+  <div class="container">
+    <section id="projects">
+      <div class="label">AI Projects</div>
+      <h2>Building on the side</h2>
+      <p class="section-sub">I don't just build AI products at work. Here's what I'm shipping on the side.</p>
+      <div class="projects-grid">
+
+        <div class="project-card live">
+          <div class="project-status live"><span class="status-dot"></span>LIVE</div>
+          <div class="project-user">Families &amp; friends</div>
+          <h3 class="project-name">Agentic Email Manager</h3>
+          <p class="project-desc">Agentic workflow that tames inbox clutter and surfaces what actually matters.</p>
+        </div>
+
+        <div class="project-card live">
+          <div class="project-status live"><span class="status-dot"></span>LIVE</div>
+          <div class="project-user">Households</div>
+          <h3 class="project-name">Roomie</h3>
+          <p class="project-desc">AI-powered shared chores and household coordination for families and roommates.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-status">SOON</div>
+          <div class="project-user">Small business owners</div>
+          <h3 class="project-name">CashSense</h3>
+          <p class="project-desc">AI agent that predicts whether you'll have enough cash 30 days out - and what to do about it.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-status">SOON</div>
+          <div class="project-user">Freelancers</div>
+          <h3 class="project-name">FreelanceFlow</h3>
+          <p class="project-desc">Estimates your quarterly tax liability in real time as invoices come in.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-status">SOON</div>
+          <div class="project-user">Individual investors</div>
+          <h3 class="project-name">EarningsEdge</h3>
+          <p class="project-desc">Weekly AI briefing on your portfolio - earnings summaries, signals, and what to watch.</p>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Writing -->
+  <div class="container">
+    <section id="writing">
+      <div class="label">Writing</div>
+      <h2>How I think</h2>
+      <p class="section-sub">On AI, fintech, and building products people actually use.</p>
+      <div class="essay-list">
+
+        <a href="#" class="essay-item">
+          <div>
+            <div class="essay-title">Why most AI in fintech is solving for the product, not the person</div>
+            <div class="essay-teaser">The AI features shipping in financial products today are impressive. Most of them are solving the wrong problem.</div>
+          </div>
+          <span class="essay-arrow">→</span>
+        </a>
+
+        <a href="#" class="essay-item">
+          <div>
+            <div class="essay-title">Cash flow anxiety is a UX problem</div>
+            <div class="essay-teaser">Small business owners don't lie awake worrying about their balance sheet. They worry about making payroll on Friday.</div>
+          </div>
+          <span class="essay-arrow">→</span>
+        </a>
+
+        <a href="#" class="essay-item">
+          <div>
+            <div class="essay-title">APMs and merchant settlement: the hidden complexity no one talks about</div>
+            <div class="essay-teaser">Every shiny new payment method hides a settlement problem. Here's what I learned running PayPal's Commerce Platform.</div>
+          </div>
+          <span class="essay-arrow">→</span>
+        </a>
+
+        <a href="#" class="essay-item">
+          <div>
+            <div class="essay-title">How AI could have transformed PayPal's financial operations - and what I'd do differently today</div>
+            <div class="essay-teaser">In 2015 we built an automated reconciliation engine that cut 99% of manual work. With today's AI, we could have gone so much further.</div>
+          </div>
+          <span class="essay-arrow">→</span>
+        </a>
+
+      </div>
+    </section>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Contact -->
+  <div class="container">
+    <section id="contact" style="padding-bottom: clamp(80px, 12vw, 140px);">
+      <div class="label">Contact</div>
+      <h2>Let's talk</h2>
+      <p class="contact-body">I'm open to conversations about AI-native fintech, payments infrastructure, and product leadership roles.</p>
+      <div class="contact-links">
+        <a href="mailto:shubhra.raj@gmail.com" class="btn-contact">shubhra.raj@gmail.com</a>
+        <a href="https://linkedin.com/in/shubhraraj" target="_blank" rel="noopener" class="btn-contact-sec">LinkedIn</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span>Shubhra Raj</span>
+    <span>Built with AI</span>
+  </footer>
+
+</body>
+</html>
