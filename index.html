@@ -275,7 +275,7 @@
       transition: color 0.15s;
     }
 
-    /* ── Contact ── */
+    /* ── Contact form ── */
     .contact-body {
       font-size: 17px;
       color: #888888;
@@ -284,30 +284,88 @@
       margin-top: 14px;
       margin-bottom: 44px;
     }
-    .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-contact {
-      display: inline-block;
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 560px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #444444;
+      letter-spacing: -0.1px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: inherit;
+      font-size: 15px;
+      color: #111111;
+      background: #F7F7F5;
+      border: 1px solid #E8E8E4;
+      border-radius: 8px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      resize: vertical;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #111111;
+      box-shadow: 0 0 0 3px rgba(17,17,17,0.06);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #BBBBBB; }
+    .btn-submit {
+      align-self: flex-start;
       background: #111111;
       color: #ffffff;
-      padding: 12px 24px;
+      padding: 12px 28px;
       border-radius: 7px;
+      font-family: inherit;
       font-size: 15px;
       font-weight: 600;
-      letter-spacing: -0.1px;
+      border: none;
+      cursor: pointer;
       transition: background 0.15s;
+      letter-spacing: -0.1px;
     }
-    .btn-contact:hover { background: #333333; }
-    .btn-contact-sec {
-      display: inline-block;
-      border: 1px solid #E8E8E4;
-      color: #888888;
-      padding: 12px 24px;
-      border-radius: 7px;
+    .btn-submit:hover { background: #333333; }
+    .btn-submit:disabled { background: #BBBBBB; cursor: not-allowed; }
+    .form-success {
+      display: none;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 10px;
+      padding: 20px 24px;
       font-size: 15px;
+      color: #15803D;
       font-weight: 500;
-      transition: border-color 0.15s, color 0.15s;
+      max-width: 560px;
     }
-    .btn-contact-sec:hover { border-color: #999; color: #333; }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
 
     /* ── Footer ── */
     footer {
@@ -518,13 +576,77 @@
     <section id="contact" style="padding-bottom: clamp(80px, 12vw, 140px);">
       <div class="label">Contact</div>
       <h2>Let's talk</h2>
-      <p class="contact-body">I'm open to conversations about AI-native fintech, payments infrastructure, and product leadership roles.</p>
-      <div class="contact-links">
-        <a href="mailto:shubhra.raj@gmail.com" class="btn-contact">shubhra.raj@gmail.com</a>
-        <a href="https://linkedin.com/in/shubhraraj" target="_blank" rel="noopener" class="btn-contact-sec">LinkedIn</a>
+      <p class="contact-body">I'm open to conversations about AI-native fintech, payments infrastructure, and product leadership roles. Tell me a bit about yourself.</p>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="company">Company / Role</label>
+          <input type="text" id="company" name="company" placeholder="e.g. Head of Product at Stripe" />
+        </div>
+
+        <div class="form-group">
+          <label for="purpose">What brings you here?</label>
+          <select id="purpose" name="purpose" required>
+            <option value="" disabled selected>Select a reason</option>
+            <option value="Job opportunity">Job opportunity</option>
+            <option value="Collaboration">Collaboration on a project</option>
+            <option value="Advisory">Advisory / consulting</option>
+            <option value="Just want to connect">Just want to connect</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="project">What's a cool project you're working on?</label>
+          <textarea id="project" name="project" rows="4" placeholder="Tell me something you're excited about building..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Send message</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        Thanks for reaching out! I'll review your message and get back to you soon.
       </div>
     </section>
   </div>
+
+  <script>
+    // Replace this URL with your deployed Google Apps Script Web App URL
+    const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const formData = new FormData(this);
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+      } catch(err) {
+        // no-cors means we can't read the response, but submission still works
+      }
+
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+  </script>
 
   <!-- Footer -->
   <footer>
