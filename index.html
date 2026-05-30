@@ -68,13 +68,38 @@
     .hero {
       padding: clamp(64px, 10vw, 112px) 0 clamp(60px, 8vw, 88px);
     }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 60px;
+      align-items: start;
+    }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+      display: block;
+    }
     .hero h1 {
-      font-size: clamp(36px, 6vw, 58px);
+      font-size: clamp(28px, 4vw, 46px);
       font-weight: 800;
       line-height: 1.08;
-      letter-spacing: -2px;
-      margin-bottom: 36px;
-      max-width: 580px;
+      letter-spacing: -1.5px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 700px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+      .hero-photo-col {
+        order: -1;
+      }
+      .hero-photo {
+        aspect-ratio: 4/3;
+        object-position: center 20%;
+      }
     }
     .hero-bio {
       font-size: 17px;
@@ -335,26 +360,38 @@
   </nav>
 
   <!-- Hero -->
-  <div class="container">
+  <div class="container" style="max-width: 1000px;">
     <section class="hero" id="hero">
-      <div class="label">Product Leader</div>
-      <h1>Building AI-native<br>financial products</h1>
-      <div class="hero-bio">
-        <p>I'm Shubhra Raj - fintech product leader with 18 years building payments infrastructure and AI-native products at PayPal, Navan, and Intuit.</p>
-        <p>I've led teams of up to 20 PMs, built financial products at the scale of 100M+ customers, $500M+ in incremental transaction volume, paving the path for $100M+ annual recurring revenue.</p>
-        <p>What drives me: finding the human friction buried inside complex financial systems and designing it away - whether that's helping a small business stop worrying about cash flow, or giving an employee instant access to their paycheck the moment it's earned.</p>
-        <p>I'm now building the next generation of AI-native financial products. Starting with the humans and agents who use them.</p>
-      </div>
-      <div class="hero-ctas">
-        <a href="mailto:shubhra.raj@gmail.com" class="btn-primary">Get in touch</a>
-        <a href="https://linkedin.com/in/shubhraraj" target="_blank" rel="noopener" class="btn-secondary">LinkedIn</a>
-      </div>
-      <div class="trust-bar">
-        <span>PayPal</span><span class="trust-sep">/</span>
-        <span>Navan</span><span class="trust-sep">/</span>
-        <span>Intuit</span><span class="trust-sep">/</span>
-        <span>Wharton MBA</span><span class="trust-sep">/</span>
-        <span>IIT Madras</span>
+      <div class="hero-layout">
+
+        <!-- Text column -->
+        <div class="hero-text-col">
+          <div class="label">Product Leader</div>
+          <h1>Building AI-native<br>financial products</h1>
+          <div class="hero-bio">
+            <p>I'm Shubhra Raj - fintech product leader with 18 years building payments infrastructure and AI-native products at PayPal, Navan, and Intuit.</p>
+            <p>I've led teams of up to 20 PMs, built financial products at the scale of 100M+ customers, $500M+ in incremental transaction volume, paving the path for $100M+ annual recurring revenue.</p>
+            <p>What drives me: finding the human friction buried inside complex financial systems and designing it away - whether that's helping a small business stop worrying about cash flow, or giving an employee instant access to their paycheck the moment it's earned.</p>
+            <p>I'm now building the next generation of AI-native financial products. Starting with the humans and agents who use them.</p>
+          </div>
+          <div class="hero-ctas">
+            <a href="mailto:shubhra.raj@gmail.com" class="btn-primary">Get in touch</a>
+            <a href="https://linkedin.com/in/shubhraraj" target="_blank" rel="noopener" class="btn-secondary">LinkedIn</a>
+          </div>
+          <div class="trust-bar">
+            <span>PayPal</span><span class="trust-sep">/</span>
+            <span>Navan</span><span class="trust-sep">/</span>
+            <span>Intuit</span><span class="trust-sep">/</span>
+            <span>Wharton MBA</span><span class="trust-sep">/</span>
+            <span>IIT Madras</span>
+          </div>
+        </div>
+
+        <!-- Photo column -->
+        <div class="hero-photo-col">
+          <img src="shubhra.jpg" alt="Shubhra Raj at Stripe Sessions" class="hero-photo" />
+        </div>
+
       </div>
     </section>
   </div>
