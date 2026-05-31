@@ -306,6 +306,12 @@
       color: #444444;
       letter-spacing: -0.1px;
     }
+    .form-group label .required {
+      color: #E53E3E;
+      font-size: 10px;
+      vertical-align: super;
+      margin-left: 2px;
+    }
     .form-group input,
     .form-group select,
     .form-group textarea {
@@ -581,22 +587,22 @@
       <form class="contact-form" id="contactForm">
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Your name</label>
+            <label for="name">Your name <span class="required">*</span></label>
             <input type="text" id="name" name="name" placeholder="Jane Smith" required />
           </div>
           <div class="form-group">
-            <label for="email">Your email</label>
+            <label for="email">Your email <span class="required">*</span></label>
             <input type="email" id="email" name="email" placeholder="jane@company.com" required />
           </div>
         </div>
 
         <div class="form-group">
-          <label for="company">Company / Role</label>
+          <label for="company">Company / Role <span class="required">*</span></label>
           <input type="text" id="company" name="company" placeholder="e.g. Head of Product at Stripe" required />
         </div>
 
         <div class="form-group">
-          <label for="purpose">What brings you here?</label>
+          <label for="purpose">What brings you here? <span class="required">*</span></label>
           <select id="purpose" name="purpose" required>
             <option value="" disabled selected>Select a reason</option>
             <option value="Job opportunity">Job opportunity</option>
@@ -608,7 +614,7 @@
         </div>
 
         <div class="form-group">
-          <label for="project">What's a cool project you're working on?</label>
+          <label for="project">What's a cool project you're working on? <span class="required">*</span></label>
           <textarea id="project" name="project" rows="4" placeholder="Tell me something you're excited about building..." required></textarea>
         </div>
 
