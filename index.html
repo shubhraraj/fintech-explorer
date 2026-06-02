@@ -199,6 +199,7 @@
       position: relative;
     }
     .project-card.live { border-color: #BFDBFE; }
+    a.project-card:hover { border-color: #2563EB; box-shadow: 0 4px 12px rgba(37,99,235,0.1); transform: translateY(-1px); transition: all 0.15s; }
     .project-status {
       position: absolute;
       top: 18px;
@@ -500,12 +501,13 @@
             <p class="project-desc">An AI agent that manages your wallet - tracks spending, optimizes balances, and acts on your behalf.</p>
           </div>
 
-          <div class="project-card live">
+          <a href="https://shubhraraj.github.io/retirement-calculator/" target="_blank" rel="noopener" class="project-card live" style="display:block; text-decoration:none; color:inherit; cursor:pointer;">
             <div class="project-status live"><span class="status-dot"></span>LIVE</div>
             <div class="project-user">Pre-retirees</div>
             <h3 class="project-name">Retirement Savings Calculator</h3>
             <p class="project-desc">AI-powered tool that calculates exactly how much you need to save each month to retire on your terms.</p>
-          </div>
+            <div style="margin-top:14px; font-size:13px; font-weight:600; color:#2563EB;">View project →</div>
+          </a>
 
           <div class="project-card">
             <div class="project-status">SOON</div>
